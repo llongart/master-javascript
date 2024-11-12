@@ -1,0 +1,72 @@
+/* Maquetación CSS
+{
+    Fuente
+    Tamaños 
+    Margenes
+    Bordes 
+    Luego lo demás 
+} 
+*/
+
+
+/* Forma de trabajo clásica en CSS */
+/* .cards{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px gray;
+}
+
+.cards .card{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    margin: 5px;
+    background: lightskyblue;
+}
+
+.cards .card h3{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cards .card a{
+    padding: 10px;
+    background: green;   
+    color: white;
+    text-decoration: none;
+} */
+
+/* Forma de trabajo en CSS con BEM */
+.cards{
+    width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px gray;
+}
+
+.cards__card{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    margin: 5px;
+    background: lightskyblue;
+}
+
+.card__title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card__link{
+    padding: 10px;
+    background: green;   
+    color: white;
+    text-decoration: none;
+}
+
+.card__link--red{
+    background-color: red;
+}

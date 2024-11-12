@@ -1,0 +1,21 @@
+Metodología de trabajo dentro de CSS
+    BEM = Bloque, Elemento y Modificador
+
+Es una forma de nombrar las clases.
+Se usa siempre la opción class para aplicar los estilos
+
+Class = aplicar estilos
+Id = aplicar funcionalidad (javascript)
+
+    Ejemplo:
+
+        .bloque
+        .bloque__elemento
+        .bloque__elemento--modificador
+
+
+Reglas que propone BEM:
+
+1. No usar ID
+2. No usar etiquetas
+3. QUe todo sea un key selector (Seleccionar justo el elemento al cual se le darán estilos)

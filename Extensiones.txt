@@ -1,0 +1,1 @@
+Para abrir .html desde vscode: open in browser

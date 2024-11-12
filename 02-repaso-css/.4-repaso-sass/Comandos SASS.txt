@@ -1,0 +1,101 @@
+1. Instalar Node.js versión LTS en sección prebuilt installer: https://nodejs.org/en/download/package-manager
+
+2. Es posible que la ejecución de scripts este deshabilitada por defecto. 
+    Usar windows + R y abrir: gpedit.msc
+    Dentro ir a Configuración de equipo > Plantillas administrativas > Componentes de windows > Windows Powershell > Acivar la ejecución de scripts.
+    Seleccionar el raddiobutton Habilitada y seleccionar tambien en Directiva de ejecución: Permitir todos los scripts. Aplicar y aceptar.
+
+3. Installar sass por medio de npm (Por eso se necesita instalar previamente Node.js). Ir a https://sass-lang.com/install/
+    comando en powershell: npm install -g sass
+
+4. Verificar en powershell las versiones instaladas con:
+    node --version
+    npm --version
+
+5. Se pueden crear archivos con la extensión .sass o .scss
+    A- .sass: Usa una sintaxis distinta a la de css. Ejemplo:
+            @mixin button-base() {
+                @include typography(button);
+                @include ripple-surface;
+                @include ripple-radius-bounded;
+
+                display: inline-flex;
+                position: relative;
+                height: $button-height;
+                border: none;
+                vertical-align: middle;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:disabled {
+                    color: $mdc-button-disabled-ink-color;
+                    cursor: default;
+                    pointer-events: none;
+                }
+            }
+
+    B- .scss: Usa una sintaxis parecida a la de css. Por lo tanto es mas cómodo de usar:
+            $color-blanco: #ccc;
+            $color-letra: green;
+
+            body{
+                background: #ccc;
+            }
+
+            h1{
+                color: $color-letra;
+            }
+
+            p{
+                color: $color-letra;
+            }
+
+            // Anidación
+            .caja{
+                h2{
+                    color: black;
+                    font-family: Arial;
+                }
+
+                p{
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    text-decoration: underline;
+                }
+            }
+
+6. Para transpilar SASS en el proyecto se usa:
+    sass --watch archivo-fuente archivo-destino
+    Ejemplo:
+        sass --watch styles.sass styles.css
+            o
+        sass --watch styles.scss styles.css
+
+        Donde: --watch sirve para transpilar en caliente y hace que el archivo-destino se actualice cada vez que se guarde el archivo-fuente
+
+7. Ventajas del SASS
+    A- Se pueden crear variables y se permite anidar cada componente de una forma distinta, ahorrando código y escribiendo más rápido
+    
+    B- Se puede parcializar el código SASS lo que permite tener varios archivos de sass modularizando el código. 
+        Para que funcione correctamente se debe seguir el estandar siguiente: _archivomodulo.scss; (Con _ delante del nombre del archivo)
+            Ejemplo: _anidacion.scss
+        Para cargar los modulos en otros archivos SASS se usa en el TOP del archivo principal: @use 'archivo-modulo'; (sin el _)
+
+    C- Mixins: Son como funciones. Ejemplo:
+        @mixin caja_personalizada($fondo: white){
+            background-color: $fondo;
+            border: 4px solid black;
+            box-shadow: 0px 0px 2px black;
+            color: $color-letra;
+        }
+
+        invocar mixin:
+        .caja{
+            @include caja_personalizada();
+        }
+
+    D- Operadores matemáticos (Suma, Resta, Multiplicación, División)
+        .caja, .caja-secundaria{
+            width: 400px + 100px; // Tambien se puede aplicar resta, multiplicación y división
+        }
