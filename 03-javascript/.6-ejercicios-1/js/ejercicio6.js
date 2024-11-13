@@ -6,11 +6,11 @@ te hacemos un 20% de descuento. Si un cliente compra el Tekken 8 que cuesta 50 e
 ¿En cuánto se le queda?
 */
 
-let precio_tekken = 50
-let descuento = 20
+let precio_tekken = 50;
+let descuento = 20;
 
-let precio_con_descuento = precio_tekken - (precio_tekken * descuento) / 100
+let precio_con_descuento = precio_tekken - (precio_tekken * descuento) / 100;
 
-let mensaje = `El cliente pagaría un total de ${precio_con_descuento}`
+let mensaje = `El cliente pagaría un total de ${precio_con_descuento}`;
 
-console.log(mensaje)
+console.log(mensaje);
