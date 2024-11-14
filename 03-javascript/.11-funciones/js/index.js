@@ -81,3 +81,115 @@ function misPeliculas(peli1, peli2, ...resto_de_pelis){
 
 let misPelisFavoritas = ["Matrix", "Terminator"]
 misPeliculas(...misPelisFavoritas, "Toy Story", "Spiderman", "Batman");
+
+/*
+    Funciones anónimas
+
+    let variable = function(){
+        ...
+    };
+
+    variable();
+
+*/
+
+const saludo = function(){
+    console.log("Hola ¿Cómo estás?")
+};
+
+saludo();
+
+
+// let veces = 0;
+
+// setInterval(function(){
+//     veces++;
+//     console.log("Se ha ejecutado el timeout "+veces+" veces");
+// }, 1000);
+
+// setInterval(saludo, 1000);
+
+// setInterval(function(){
+//     saludo()
+// }, 1000);
+
+
+/* 
+    Funciones de callback "Avanzadas"
+*/
+
+function restame(n1, n2, mostrar, multiplicarPorTres){
+    let resta = n1 - n2;
+
+    mostrar(resta);
+    multiplicarPorTres(resta);
+
+    return resta;
+}
+
+restame(20, 5, function(resultado){
+    console.log(resultado);
+},
+function(resultado){
+    console.log(resultado * 3);
+});
+
+/*
+    Ambito de variables (Scope)
+
+*/
+
+let ruta = "llongart.com/ruta"
+
+function mostrarRuta(){
+    console.info(ruta);
+
+    let nombre = "Luis Longart";
+    console.log(nombre);
+}
+
+console.warn(ruta);
+// console.info(nombre); // No se tiene acceso a esta variable fuera de la función
+mostrarRuta();
+
+/*
+    Hoisting o elevación
+*/
+
+// Ejemplos con "var"
+var coche = "Ferrari Enzo";
+
+console.log(coche);  // Imprime el valor de la variable coche
+
+// Ejemplo al reves
+
+console.log(coche);  // Imprime el valor undefined. El hoisting hace que eleve la declaración de la variable pero no la asignación del valor
+var coche = "Ferrari Enzo";
+
+// Ejemplo con "let"
+
+let moto = "ducati x1";
+
+console.log(moto) // Imprime como normalmente
+
+// Al reves
+
+// console.log(moto2);
+// let moto2 = "ducati x1"; // Para let y const no existe hoisting o elevación por lo tanto el programa daría un error al tratar de ejecutar esta linea
+
+/*
+    Funciones de flecha
+*/
+
+// Definicion
+let nuevo_curso = () =>{
+    console.log("Máster en JavaScript");
+};
+
+nuevo_curso();
+
+// // Utilizar en un callback
+// setTimeout(()=>{
+//     console.log("Estoy usando una función de flecha")
+// }, 1000);
+
