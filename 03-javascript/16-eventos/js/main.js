@@ -57,7 +57,7 @@ texto3.addEventListener("keyup", (event) => {
 // Eventos de formulario
 let formulario = document.querySelector("#formulario");
 
-//Submit
+// Submit
 formulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -69,26 +69,26 @@ formulario.addEventListener("submit", (event) => {
 
 });
 
-//Input
+// Input
 formulario.addEventListener("input", (event) => {
     console.log(event.target.value);
 });
 
-//Change
+// Change
 let genero = document.querySelector("#genero");
 
 genero.addEventListener("change", (event) => {
     console.log(event.target.value);
 });
 
-//Focus
+// Focus
 let email = document.querySelector("#email");
 
 email.addEventListener("focus", (event) => {
     console.log("Estás dentro del campo de email");
 });
 
-//Blur
+// Blur
 email.addEventListener("blur", (event) => {
     console.log("Estás fuera del campo de email");
 })
