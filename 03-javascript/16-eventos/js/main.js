@@ -81,14 +81,81 @@ genero.addEventListener("change", (event) => {
     console.log(event.target.value);
 });
 
-// Focus
+// Focus (Entrar en el campo)
 let email = document.querySelector("#email");
 
 email.addEventListener("focus", (event) => {
     console.log("Estás dentro del campo de email");
+    email.style.border = "2px solid lightblue";
+    email.style.outline = "none";
 });
 
-// Blur
+// Blur (Salir del campo)
 email.addEventListener("blur", (event) => {
     console.log("Estás fuera del campo de email");
+    email.style.border = "2px solid gray";
+    email.style.boderRadius = "5px";
 })
+
+// Eventos del documento y la ventana
+document.addEventListener("DOMContentLoaded", () => {
+    // Aqui hago todo mi código de js
+
+    console.log("TODO EL DOM HA SIDO CARGADO");
+});
+
+window.addEventListener("load", () => {
+    // Aqui hago todo mi código de js
+
+    console.log("TODO EL DOM Y LOS RECURSOS HAN SIDO CARGADOS");
+});
+
+window.addEventListener("resize", () => {
+    console.log("La ventana ha cambiado de tamaño");
+});
+
+window.addEventListener("scroll", () => {    
+    console.log("Has hecho scroll en la página");
+});
+
+// Eventos del portapapeles
+let campo = document.querySelector("#portapapeles");
+
+// Si uso el event.preventDefault() no me deja copiar, cortar o pegar o hacer click derecho
+// campo.addEventListener("copy", (event) => { 
+//     console.log("Has copiado el texto");
+//     navigator.clipboard.writeText(""); // Limpia el portapapeles y hace que no se pueda copiar nada
+// });
+
+campo.addEventListener("cut", (event) => {
+    console.log("Has cortado el texto");
+});
+
+campo.addEventListener("paste", (event) => {
+    console.log("Has pegado el texto");
+});
+
+campo.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+    console.log("Has hecho click derecho");
+});
+
+// Eliminar eventos
+function copiar(){
+    console.log("Has copiado el texto");
+}
+boton.removeEventListener("click", copiar);
+
+// Propagación de eventos
+
+let cajaPadre = document.querySelector("#cajaPadre");
+let botonHijo = document.querySelector("#botonHijo");
+
+cajaPadre.addEventListener("click", () => {
+    console.log("Has hecho click en la caja padre");
+});
+
+botonHijo.addEventListener("click", (event) => {
+    event.stopPropagation();
+    console.log("Has hecho click en el botón hijo");
+});
